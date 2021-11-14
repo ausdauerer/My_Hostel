@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:title="@string/menu_home"
+            android:icon="@drawable/ic_round_home_24"/>
+        <item
+            android:id="@+id/firstFragment"
+            android:icon="@drawable/ic_baseline_content_copy_24"
+            android:title="First Fragment" />
+        <item
+            android:id="@+id/laundaryHomeFragment"
+            android:icon="@drawable/ic_baseline_local_laundry_service_24"
+            android:title="Laundary" />
+        <item
+            android:id="@+id/myProfileFragment"
+            android:icon="@drawable/ic_baseline_account_box_24"
+            android:title="My Profile" />
+    </group>
+</menu>
