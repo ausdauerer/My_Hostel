@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_laundaryHomeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_laundaryHomeFragment_to_expandedLaundaryJob"
+            app:destination="@id/expandedLaundaryJob" />
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
@@ -55,4 +58,14 @@
         android:name="com.example.hostel2.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/expandedLaundaryJob"
+        android:name="com.example.hostel2.ExpandedLaundaryJob"
+        android:label="fragment_expanded_laundary_job"
+        tools:layout="@layout/fragment_expanded_laundary_job" >
+        <argument
+            android:name="laundary_job_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

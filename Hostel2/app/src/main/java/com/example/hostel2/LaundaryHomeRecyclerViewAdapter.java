@@ -1,6 +1,7 @@
 package com.example.hostel2;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -26,12 +28,13 @@ public class LaundaryHomeRecyclerViewAdapter extends RecyclerView.Adapter<Launda
         private final TextView submission_date;
         private final TextView laundary_id;
         private final TextView status;
+        private final View card;
 
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-
+            card=view;
             submission_date = (TextView) view.findViewById(R.id.laundary_home_card_text_view_submission_date);
             status= (TextView) view.findViewById(R.id.laundary_home_card_text_view_status);
             laundary_id=(TextView) view.findViewById(R.id.laundary_home_card_text_view_laundary_id);
@@ -45,6 +48,7 @@ public class LaundaryHomeRecyclerViewAdapter extends RecyclerView.Adapter<Launda
         public TextView getStatusTextView(){
             return status;
         }
+        public View getCardView(){ return card;}
     }
 
     @NonNull
@@ -60,7 +64,16 @@ public class LaundaryHomeRecyclerViewAdapter extends RecyclerView.Adapter<Launda
         TextView submission_date=viewHolder.getSubmissionDateTextView();
         TextView status=viewHolder.getStatusTextView();
         TextView laundary_id=viewHolder.getLaundaryIdTextView();
+        View cardView=viewHolder.getCardView();
 
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle data=new Bundle();
+                data.putInt("laundary_id",job.job_id);
+                Navigation.findNavController(view).navigate(R.id.action_laundaryHomeFragment_to_expandedLaundaryJob,data);
+            }
+        });
         submission_date.setText(job.submission_date);
         laundary_id.setText(String.valueOf(job.job_id));
         status.setText(job.status);
