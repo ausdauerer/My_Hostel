@@ -2,6 +2,7 @@ package com.example.hostel2;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,5 +97,15 @@ public class LaundaryHomeRecyclerViewAdapter extends RecyclerView.Adapter<Launda
     @Override
     public int getItemCount() {
         return arrayList.size();
+    }
+    public void clear() {
+        arrayList.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void add(ArrayList<LaundaryJob> list) {
+        arrayList.addAll(list);
+        notifyDataSetChanged();
     }
 }

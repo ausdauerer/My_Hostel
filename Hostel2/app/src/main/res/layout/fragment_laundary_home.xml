@@ -10,6 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/laundary_home_swipe_refresh_fragment" >
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/laundary_home_recycler_view"
             android:layout_width="match_parent"
@@ -17,6 +21,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/laundary_home_add_job_fab"

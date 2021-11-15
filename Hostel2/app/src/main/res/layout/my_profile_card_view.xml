@@ -19,26 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
-            android:text="My Profile"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="5dp"
             android:text="Name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
+            android:id="@+id/profile_fragment_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="Harshavardhan Veeranna Navalli"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:layout_width="match_parent"
@@ -47,14 +39,15 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:text="Email ID"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
+            android:id="@+id/profile_fragment_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="hnavalli@outlook.com"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:layout_width="match_parent"
@@ -63,14 +56,15 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:text="Phone No"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
+            android:id="@+id/profile_fragment_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="9886605277"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:layout_width="match_parent"
@@ -79,14 +73,15 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:text="Address"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
+            android:id="@+id/profile_fragment_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="#36 , 3rd Cross , East Sectoe , Nandanavana Layout , Koppa Gate Nisarga Road, Bukkasagara, Jigani, Bangalore-5600105"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <Button
             android:id="@+id/edit_profile_button"
