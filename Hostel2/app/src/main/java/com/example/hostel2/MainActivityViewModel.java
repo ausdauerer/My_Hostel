@@ -24,6 +24,11 @@ public class MainActivityViewModel extends ViewModel{
         mUserProfile=mRepo.getUserProfile();
     }
 
+    public void updateProfile(Profile profile){
+        mUserProfile.setValue(profile);
+        //Do async operation to the server
+    }
+
     public void refreshData(){
         mLaundaryJobs.setValue(mRepo.getLaundaryDataList().getValue());
     }
