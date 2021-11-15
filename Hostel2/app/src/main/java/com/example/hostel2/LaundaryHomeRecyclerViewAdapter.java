@@ -71,6 +71,11 @@ public class LaundaryHomeRecyclerViewAdapter extends RecyclerView.Adapter<Launda
             public void onClick(View view) {
                 Bundle data=new Bundle();
                 data.putInt("laundary_id",job.job_id);
+                data.putString("status",job.status);
+                data.putInt("no_of_clothes",job.number_of_clothes);
+                data.putString("laundary_name",job.laundary_name);
+                data.putString("submission_date",job.submission_date);
+                data.putString("delivery_date",job.delivery_date);
                 Navigation.findNavController(view).navigate(R.id.action_laundaryHomeFragment_to_expandedLaundaryJob,data);
             }
         });
