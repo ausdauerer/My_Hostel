@@ -20,5 +20,9 @@
             android:id="@+id/myProfileFragment"
             android:icon="@drawable/ic_baseline_account_box_24"
             android:title="My Profile" />
+        <item
+            android:id="@+id/attendanceHomeFragment"
+            android:icon="@drawable/ic_baseline_calendar_today_24"
+            android:title="Attendance" />
     </group>
 </menu>

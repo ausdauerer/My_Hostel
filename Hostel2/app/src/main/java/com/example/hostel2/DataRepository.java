@@ -1,9 +1,18 @@
 package com.example.hostel2;
 
+import android.os.AsyncTask;
+import android.util.Log;
 import android.view.contentcapture.DataRemovalRequest;
+import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 
+import java.sql.Array;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DataRepository {
@@ -40,5 +49,32 @@ public class DataRepository {
         MutableLiveData<Profile> mpr=new MutableLiveData<Profile>();
         mpr.setValue(pr);
         return(mpr);
+    }
+
+    public MutableLiveData<ArrayList<AttendanceLog>> getAttendanceDataList(){
+        ArrayList<AttendanceLog> atdlog=new ArrayList<AttendanceLog>();
+        atdlog.add(new AttendanceLog("15-05-2021","Absent","Hackathon"));
+        atdlog.add(new AttendanceLog("16-05-2021","Absent","Hackathon"));
+        atdlog.add(new AttendanceLog("17-05-2021","Absent","Hackathon"));
+        atdlog.add(new AttendanceLog("18-05-2021","Present",""));
+        atdlog.add(new AttendanceLog("19-05-2021","Present",""));
+        atdlog.add(new AttendanceLog("20-05-2021","Present",""));
+        atdlog.add(new AttendanceLog("21-05-2021","Present",""));
+        atdlog.add(new AttendanceLog("22-05-2021","Absent","On Vacation for Meeting Parents"));
+        atdlog.add(new AttendanceLog("23-05-2021","Absent","On Vacation for Meeting Parents"));
+        atdlog.add(new AttendanceLog("24-05-2021","Absent","On Vacation for Meeting Parents"));
+        atdlog.add(new AttendanceLog("25-05-2021","Absent","On Vacation for Meeting Parents"));
+        atdlog.add(new AttendanceLog("26-05-2021","Present",""));
+        atdlog.add(new AttendanceLog("27-05-2021","Present",""));
+        atdlog.add(new AttendanceLog("28-05-2021","Present",""));
+        atdlog.add(new AttendanceLog("29-05-2021","Present",""));
+        MutableLiveData<ArrayList<AttendanceLog>> mpr=new MutableLiveData<ArrayList<AttendanceLog>>();
+        mpr.setValue(atdlog);
+        return(mpr);
+    }
+
+    public void addLaundaryJob(LaundaryJob j){
+        laundaryDataList.add(j);
+        //Update in server
     }
 }

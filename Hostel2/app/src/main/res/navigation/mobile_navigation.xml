@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_myProfileFragment"
             app:destination="@id/myProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_attendanceHomeFragment"
+            app:destination="@id/attendanceHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/firstFragment"
@@ -84,4 +87,9 @@
         android:name="com.example.hostel2.AddLaundaryJobFragment"
         android:label="New Laundary Job"
         tools:layout="@layout/fragment_add_laundary_job" />
+    <fragment
+        android:id="@+id/attendanceHomeFragment"
+        android:name="com.example.hostel2.AttendanceHomeFragment"
+        android:label="fragment_attendance_home"
+        tools:layout="@layout/fragment_attendance_home" />
 </navigation>

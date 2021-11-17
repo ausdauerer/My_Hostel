@@ -16,6 +16,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -26,8 +30,10 @@ public class laundaryHomeFragment extends Fragment {
     private View view;
     private MainActivityViewModel model;
     private SwipeRefreshLayout swipeContainer;
-    private LaundaryHomeRecyclerViewAdapter adapter;
-    private RecyclerView rv;
+    private LaundaryHomeListViewAdapter adapter;
+    private ListView listView;
+    private Spinner sortSpinner;
+    private ArrayList<String> sortOptions;
     public laundaryHomeFragment() {
         // Required empty public constructor
     }
@@ -36,7 +42,11 @@ public class laundaryHomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_laundary_home, container, false);
         swipeContainer=view.findViewById(R.id.laundary_home_swipe_refresh_fragment);
-        rv=(RecyclerView) view.findViewById(R.id.laundary_home_recycler_view);
+        listView=(ListView) view.findViewById(R.id.laundary_home_list_view);
+        sortSpinner=(Spinner)view.findViewById(R.id.laundary_home_list_view_sort_spinner);
+        sortOptions=new ArrayList<String>();
+        sortOptions.add("ID");
+        sortOptions.add("Date");
         swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
@@ -66,15 +76,34 @@ public class laundaryHomeFragment extends Fragment {
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                model.refreshData();
+                model.refreshLaundaryData();
                 swipeContainer.setRefreshing(false);
             }
         });
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,sortOptions);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sortSpinner.setAdapter(adapter);
+        sortSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String option=sortOptions.get(position);
+                if(option.compareTo("ID")==0){
+                    model.sortLaundaryListById();
+                }
+                if(option.compareTo("Date")==0){
+                    model.sortLaundaryListByDate();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
     }
     public void initRecyclerView(){
-        adapter=new LaundaryHomeRecyclerViewAdapter(getActivity(),model.getLaundaryJobs().getValue());
-        rv.setAdapter(adapter);
-        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter=new LaundaryHomeListViewAdapter(getActivity(),model.getLaundaryJobs().getValue());
+        listView.setAdapter(adapter);
     }
-
 }
